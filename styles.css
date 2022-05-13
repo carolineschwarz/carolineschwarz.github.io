@@ -1,0 +1,349 @@
+@font-face {
+  font-family: Gotham;
+  src: url("src/fonts/GothamNarrow-Bold.otf") format("otf"),
+    url("src/fonts/GothamNarrow-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("src/fonts/GothamNarrow-Book.otf") format("otf"),
+    url("src/fonts/GothamNarrow-Book.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("src/fonts/GothamNarrow-Medium.otf") format("otf"),
+    url("src/fonts/GothamNarrow-Medium.otf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  --font-family: 'Gotham', Helvetica, sans-serif;
+  --line-height: 1.5;
+  --heading-one-size: 2.25rem;
+  --heading-two-size: 1.65rem;
+  --main-font-size: 1rem;
+  --small-font-size: 0.75rem;
+  --color-light-background: #000;
+  --color-dark-background: #fff;
+  --color-active: #ff4814;
+  --text-align: left;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-size: var(--main-font-size);
+}
+
+.layout {
+  margin: 3vh auto;
+  max-width: 95vw;
+  height: 90vh;
+}
+
+.active {
+  color: var(--color-active)
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-light-background);
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-active);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: var(--heading-one-size);
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: var(--heading-two-size);
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 5vh;
+}
+
+.index {
+  width: 40%;
+}
+
+.nav {
+  width: 60%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: var(--color-active);
+}
+
+.grid-container {
+  /*display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "image1 image1 image1 image2 image2 image2 image3 image3 image3"
+                       "image4 image4 image4 image5 image5 image5 image6 image6 image6"
+                       "image7 image7 image7 image8 image8 image8 image9 image9 image9"
+  ;
+  gap: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  grid-gap: 1rem;
+  grid-auto-flow: dense;*/
+  column-count: 3;
+  column-gap: 1em;          
+}
+
+.project-card {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}
+
+/*.project-image {
+  object-fit: cover;
+}
+
+.landscape {
+  grid-column-end: span 2;
+}
+
+.portrait {
+  grid-row-end: span 2;
+}
+
+.project-card {
+  position: relative;
+}
+
+.project-image {
+  object-fit: cover;
+}*/
+
+.image-wrapper {
+  position: relative;
+}
+
+.project-image {
+  filter: brightness(100%);
+  -webkit-filter: brightness(100%);
+  -webkit-filter: brightness(100%);
+  transition: all .7s ease;
+  -webkit-transition: all .7s ease;
+  -moz-transition: all .7s ease;
+  -o-transition: all .7s ease;
+  -ms-transition: all .7s ease;
+}
+
+.project-image:hover {
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+}
+
+.project-title {
+  position: absolute;
+  bottom: 50%;
+  color: #f1f1f1;
+  width: 100%;
+  transition: 1s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-wrapper:hover .project-title {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
+
+.footer p {
+  font-size: var(--small-font-size);
+}
+/* individual pages */
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+}
+
+.project-description {
+  width: 40%;
+  height: 100%;
+  padding-right: 5vw;
+  overflow-y: scroll;
+  text-align: justify;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.project-description::-webkit-scrollbar {
+  display: none;
+}
+
+.project-image-container {
+  width: 60%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  /* white-space solution */
+  /*overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;*/
+
+  /* flex box solution */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 50%;
+  right: 0;
+}
+
+.project-image-single {
+  max-height: 100%;
+  width: fit-content;
+  object-fit: cover;
+  /* white-space solution */
+  /*display: inline-block;*/
+  /* flex box solution */
+  flex: 0 0 auto;
+  padding-right: 2em;
+}
+
+.project-image-single:last-child {
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 920px) and (min-width: 540px) {
+  .grid-container {
+    column-count: 2;
+  }
+
+  .header {
+    display: block;
+  }
+  
+  .index {
+    width: 100%;
+  }
+
+  .nav {
+    width: 100%;
+  }
+}
+
+/* small screens */
+
+@media only screen and (max-width: 540px) {
+  .grid-container {
+    column-count: 1;
+  }
+
+  .header {
+    display: block;
+  }
+  
+  .index {
+    width: 100%;
+  }
+
+  .nav {
+    width: 80%;
+  }
+
+  .nav-item {
+    font-size: var(--main-font-size);
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .project-description {
+    width: 100%;
+    height: 100%;
+  }
+
+  .project-image-container {
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    /* white-space solution */
+    /*overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;*/
+  
+    /* flex box solution */
+    display: block;
+    flex-wrap: wrap;
+    overflow-x: none;
+    position: relative;
+  }
+
+  .project-image-single {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    /* white-space solution */
+    /*display: inline-block;*/
+    /* flex box solution */
+    flex: 0 0 auto;
+    padding-right: 3vw;
+  }
+
+  .project-image-single:last-child {
+    padding-right: 3vw;
+  }
+}

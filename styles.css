@@ -85,6 +85,7 @@ li {
 .header {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   padding-bottom: 5vh;
 }
 
@@ -93,7 +94,7 @@ li {
 }
 
 .nav {
-  width: 60%;
+  width: 45%;
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
@@ -167,8 +168,8 @@ li {
 }
 
 .project-image:hover {
-  filter: brightness(50%);
-  -webkit-filter: brightness(50%);
+  filter: brightness(30%);
+  -webkit-filter: brightness(30%);
 }
 
 .project-title {
@@ -284,13 +285,14 @@ li {
   width: 100%;
 }
 
-@media only screen and (max-width: 920px) and (min-width: 540px) {
+@media only screen and (max-width: 1030px) and (min-width: 540px) {
   .grid-container {
     column-count: 2;
   }
 
   .header {
     display: block;
+    padding-bottom: 3vw;
   }
   
   .index {
@@ -298,13 +300,55 @@ li {
   }
 
   .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flex-container {
+    flex-direction: column-reverse;
+    height: 100%;
     width: 100%;
   }
+
+  .project-description {
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+    padding-bottom: 5vw;
+  }
+
+  .project-image-container {
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    /* flex box solution */
+    display: block;
+    flex-wrap: wrap;
+    overflow-x: none;
+    position: relative;
+  }
+
+  .project-image-wrapper {
+    margin: 0;
+  }
+
+  .project-image-single {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    /* white-space solution */
+    /*display: inline-block;*/
+    /* flex box solution */
+    flex: 0 0 auto;
+    padding-right: 0;
+    padding-bottom: 3vw;
+  }
+
 }
 
 /* small screens */
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 539px) {
   .layout {
     margin: 5vw auto;
   }
@@ -333,7 +377,7 @@ li {
   }
 
   .flex-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: 100%;
   }
 
@@ -353,6 +397,10 @@ li {
     flex-wrap: wrap;
     overflow-x: none;
     position: relative;
+  }
+
+  .project-image-wrapper {
+    margin: 0;
   }
 
 
